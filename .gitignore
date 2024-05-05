@@ -3,6 +3,7 @@
 /backend/node_modules
 /.pnp
 .pnp.js
+messages.db
 
 # testing
 /coverage
