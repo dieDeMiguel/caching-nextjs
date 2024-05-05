@@ -4,6 +4,7 @@
 /.pnp
 .pnp.js
 messages.db
+.vscode
 
 # testing
 /coverage
