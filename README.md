@@ -20,7 +20,28 @@ The `export const dynamic = "force-dynamic"` is used to dynamically import modul
 
 The `unstable_noStore()` function is a feature that allows you to prevent a page from being stored in the cache. This can be useful for pages that contain sensitive information or for pages that should always be rendered server-side.
 
-## Getting Started\
+## \
+
+Caching and Request De-duplication
+
+In this project, we use the `nextCache` function to cache the results of database queries. This can significantly improve the performance of our application by reducing the number of database queries we need to make.
+
+One of the functions we cache is `getMessages`, which fetches messages from the database:
+
+```markdown
+export const getMessages = nextCache(
+cache(function getMessages() {
+console.log("Fetching messages from db");
+return db.prepare("SELECT \* FROM messages").all();
+}),
+["messages"],
+{
+tags: ["msg"],
+}
+);
+```
+
+## Getting Started
 
 \
 First, install depenedencies:
